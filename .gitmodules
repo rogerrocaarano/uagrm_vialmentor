@@ -1,0 +1,6 @@
+[submodule "src/api"]
+	path = src/api
+	url = https://github.com/rogerrocaarano/rag_api.git
+[submodule "src/text_processor"]
+	path = src/text_processor
+	url = https://github.com/rogerrocaarano/rag_text_processor.git
