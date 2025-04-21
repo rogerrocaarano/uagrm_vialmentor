@@ -10,15 +10,17 @@ services:
     volumes:
       - ../.data/api:/data
       - ../.data/ingest:/docs
+      - .config/api/appsettings.json:/app/appsettings.json:ro
     environment:
-      - ConnectionStrings__ChatsDb="Data Source=/data/chats.db;"
+      - ConnectionStrings__ChatsDb=Data Source=/data/chats.db;
       - Services__Deepseek__ApiKey=${DEEPSEEK_API_KEY}
-      - Services__TextProcessor__BaseUrl="http://text-processor:5001"
-      - Services__ContextRepository__ChromaUri="http://localhost:5002/api/v1/"
+      - Services__Deepseek__Rules=rules.json
+      - Services__TextProcessor__BaseUrl=http://text-processor:5000
+      - Services__ContextRepository__ChromaUri=http://context-storage:8000/api/v1/
       - Services__ContextRepository__ContextCollection=context_documents
       - Services__ContextRepository__FragmentCollection=fragments
       - Services__ContextSeeder__SeedDirectory=/docs
-      
+
   text-processor:
     build:
       context: ../src/text_processor
