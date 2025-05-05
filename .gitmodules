@@ -4,3 +4,6 @@
 [submodule "src/text_processor"]
 	path = src/text_processor
 	url = https://github.com/rogerrocaarano/rag_text_processor.git
+[submodule "src/android"]
+	path = src/android
+	url = https://github.com/rogerrocaarano/VialmentorApp.git
